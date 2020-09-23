@@ -104,10 +104,10 @@ class DetailsForm extends Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="Home" >
         <section className="page-section">
           <div className="mt-5 text-center">
-            <div className="container">
+            <div className="container" align="center">
               <h1>
                 <i className="fa fa-hospital-o" />
                 Test for Sepsis
@@ -117,8 +117,9 @@ class DetailsForm extends Component {
                 id="detailsForm"
                 onSubmit={this.handleSubmit}
               >
+                <h2>Vital signs</h2>
                 {Object.keys(this.state).map((key, index) => {
-                  if (index !== 38) {
+                  if (index < 8) {
                     return (
                       <div>
                         <input
@@ -132,11 +133,53 @@ class DetailsForm extends Component {
                         />
                         <br />
                         <br />
+                        
                       </div>
                     );
                   }
                 })}
-
+              <h2>Laboratory Values</h2>
+              {Object.keys(this.state).map((key, index) => {
+                  if (index > 8 && index< 34) {
+                    return (
+                      <div>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name={key}
+                          placeholder={this.state.detailedName[index]}
+                          // value={this.state[key]}
+                          onChange={this.ChangeHandler}
+                          // required
+                        />
+                        <br />
+                        <br />
+                        
+                      </div>
+                    );
+                  }
+                })}
+              <h2>Demographics</h2>
+              {Object.keys(this.state).map((key, index) => {
+                  if (index > 33 && index< 38) {
+                    return (
+                      <div>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name={key}
+                          placeholder={this.state.detailedName[index]}
+                          // value={this.state[key]}
+                          onChange={this.ChangeHandler}
+                          // required
+                        />
+                        <br />
+                        <br />
+                        
+                      </div>
+                    );
+                  }
+                })}
                 <button type="submit" className="btn btn-primary btn-bg mt-3">
                   Predict
                 </button>

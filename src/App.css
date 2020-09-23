@@ -49,22 +49,28 @@
 .form-style-4 {
     width: 750px;
     font-size: 16px;
-    background: #495C70;
+    background: #5d8c92;
     padding: 30px 30px 15px 30px;
     border: 5px solid #53687E;
+    
 }
-
 .form-style-4 input[type=submit],
 .form-style-4 input[type=button],
 .form-style-4 input[type=text],
 .form-style-4 input[type=email],
-.form-style-4 textarea,
+
 .form-style-4 label {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 16px;
     color: #fff;
-}
+    
 
+
+
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:  white!important;
+  }
 .form-style-4 label {
     display: block;
     margin-bottom: 10px;
@@ -79,7 +85,7 @@
 .form-style-4 input[type=email] {
     background: transparent;
     border: none;
-    border-bottom: 1px dashed #83A4C5;
+    border-bottom: 1px dashed #ffffff;
     width: 600;
     outline: none;
     padding: 0px 0px 0px 0px;
@@ -108,7 +114,7 @@
 
 .form-style-4 input[type=submit],
 .form-style-4 input[type=button] {
-    background: #576E86;
+    background: #76afc5;
     border: none;
     padding: 8px 10px 8px 10px;
     border-radius: 5px;
