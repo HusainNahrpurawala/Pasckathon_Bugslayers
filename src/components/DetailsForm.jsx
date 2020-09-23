@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 class DetailsForm extends Component {
   state = {
@@ -99,12 +101,32 @@ class DetailsForm extends Component {
     e.preventDefault();
 
     console.log(this.state);
-    // AXIOS CALL COMES HERE
+
+    var toApi = this.state;
+    var predict;
+    delete toApi.detailedName;
+
+    axios
+      .post("http:localhost:8000/sepsis", {
+        ...toApi,
+      })
+      .then((res) => {
+        predict = res.data;
+      });
+
+    this.setState({ prediction: predict });
   };
 
   render() {
+    if (this.state.prediction) {
+      return (
+        <Redirect
+          to={{ pathname: "/result", prediction: this.state.prediction }}
+        />
+      );
+    }
     return (
-      <div className="Home" >
+      <div className="Home">
         <section className="page-section">
           <div className="mt-5 text-center">
             <div className="container" align="center">
@@ -129,18 +151,17 @@ class DetailsForm extends Component {
                           placeholder={this.state.detailedName[index]}
                           // value={this.state[key]}
                           onChange={this.ChangeHandler}
-                          // required
+                          required
                         />
                         <br />
                         <br />
-                        
                       </div>
                     );
                   }
                 })}
-              <h2>Laboratory Values</h2>
-              {Object.keys(this.state).map((key, index) => {
-                  if (index > 8 && index< 34) {
+                <h2>Laboratory Values</h2>
+                {Object.keys(this.state).map((key, index) => {
+                  if (index > 8 && index < 34) {
                     return (
                       <div>
                         <input
@@ -150,18 +171,17 @@ class DetailsForm extends Component {
                           placeholder={this.state.detailedName[index]}
                           // value={this.state[key]}
                           onChange={this.ChangeHandler}
-                          // required
+                          required
                         />
                         <br />
                         <br />
-                        
                       </div>
                     );
                   }
                 })}
-              <h2>Demographics</h2>
-              {Object.keys(this.state).map((key, index) => {
-                  if (index > 33 && index< 38) {
+                <h2>Demographics</h2>
+                {Object.keys(this.state).map((key, index) => {
+                  if (index > 33 && index < 38) {
                     return (
                       <div>
                         <input
@@ -171,24 +191,21 @@ class DetailsForm extends Component {
                           placeholder={this.state.detailedName[index]}
                           // value={this.state[key]}
                           onChange={this.ChangeHandler}
-                          // required
+                          required
                         />
                         <br />
                         <br />
-                        
                       </div>
                     );
                   }
                 })}
-                <div class="center1">
-          <a
-            className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"
-            href="/negative"
-          >
-            {" "}
-            Submit{" "}
-          </a>{" "}
-        </div>{" "}
+                <button
+                  className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"
+                  type="submit"
+                >
+                  {" "}
+                  Submit{" "}
+                </button>
               </form>
             </div>
           </div>
