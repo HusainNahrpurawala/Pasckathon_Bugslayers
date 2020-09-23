@@ -83,14 +83,21 @@ class DetailsForm extends Component {
   };
 
   ChangeHandler = (e) => {
-    console.log(e.target.name, e.target.value);
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    // console.log(e.target.name, e.target.value);
+    if (e.target.name === "gender") {
+      this.setState({
+        [e.target.name]: e.target.value === "M" ? "1" : "0",
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
+
     console.log(this.state);
     // AXIOS CALL COMES HERE
   };
@@ -110,15 +117,25 @@ class DetailsForm extends Component {
                 id="detailsForm"
                 onSubmit={this.handleSubmit}
               >
-                <input
-                  type="text"
-                  className="form-control"
-                  name="abc"
-                  placeholder="abc"
-                  value={this.state.abc}
-                  onChange={this.ChangeHandler}
-                  required
-                />
+                {Object.keys(this.state).map((key, index) => {
+                  if (index !== 38) {
+                    return (
+                      <div>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name={key}
+                          placeholder={this.state.detailedName[index]}
+                          // value={this.state[key]}
+                          onChange={this.ChangeHandler}
+                          // required
+                        />
+                        <br />
+                        <br />
+                      </div>
+                    );
+                  }
+                })}
 
                 <button type="submit" className="btn btn-primary btn-bg mt-3">
                   Predict
@@ -126,24 +143,6 @@ class DetailsForm extends Component {
               </form>
             </div>
           </div>
-          {/* <form onSubmit={this.handleSubmit}>
-              <div className="form-row">
-                <input
-                  type="text"
-                  className="form-control-sm"
-                  placeholder="abc"
-                  name="abc"
-                  value={this.state.abc}
-                  onChange={(e) => this.ChangeHandler(e)}
-                  required
-                />
-              </div>
-              <div className="form-row">
-                <button type="submit" className="btn-outline-primary">
-                  Submit
-                </button>
-              </div>
-            </form> */}
         </section>
       </div>
     );
