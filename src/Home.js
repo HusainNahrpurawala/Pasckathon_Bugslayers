@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-//import {BrowserRouter, Switch,Route} from 'react-router-dom';
 import "./App.css";
-//import { NavLink } from 'react-router-dom';
 import second from "./2.JPG";
 import first from "./1.JPG";
 class Home extends Component {
@@ -11,10 +9,10 @@ class Home extends Component {
         <header className="masthead">
           <div className="container">
             <div className="intro-text">
-              <div className="intro-lead-in"> SEPSIS PREDICTION SYSTEM </div>
+              <div className="intro-lead-in"> SEPSIS PREDICTION SYSTEM </div>{" "}
             </div>{" "}
-          </div>
-        </header>
+          </div>{" "}
+        </header>{" "}
         <section className="page-section" id="services">
           <div className="container">
             <div className="text-center">
@@ -35,12 +33,12 @@ class Home extends Component {
                   including 4.2 million newborns and children.Sepsis costs US
                   hospitals more than any other disease($24 billion) and a
                   majority of these costs are because of sepsis patients who
-                  were not diagnosed on admission.
+                  were not diagnosed on admission.{" "}
                 </p>{" "}
               </div>{" "}
               <img src={first} alt="Sepsis statistics" />
             </div>{" "}
-          </div>
+          </div>{" "}
         </section>{" "}
         <section className="page-section" id="services">
           <div className="container">
@@ -65,15 +63,15 @@ class Home extends Component {
                   the test results of a patient and can predict Sepsis in a
                   patient about 6 hours before the prevalent methods.This
                   provides doctors with sufficient time to work with and provide
-                  proper medication.
+                  proper medication.{" "}
                 </p>{" "}
                 <div>
                   <img src={second} alt="challenge" />
                 </div>{" "}
               </div>{" "}
-            </div>
+            </div>{" "}
           </div>{" "}
-        </section>
+        </section>{" "}
         <div class="center">
           <a
             className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"

@@ -14,12 +14,8 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />{" "}
-            <Route exact path="/form" component={DetailsForm}>
-              {" "}
-            </Route>{" "}
-            <Route exact path="/result" component={Result}>
-              {" "}
-            </Route>{" "}
+            <Route exact path="/form" component={DetailsForm}></Route>{" "}
+            <Route exact path="/result" component={Result}></Route>{" "}
           </Switch>{" "}
         </div>{" "}
       </BrowserRouter>
