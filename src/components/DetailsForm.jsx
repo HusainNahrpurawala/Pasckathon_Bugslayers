@@ -180,9 +180,15 @@ class DetailsForm extends Component {
                     );
                   }
                 })}
-                <button type="submit" className="btn btn-primary btn-bg mt-3">
-                  Predict
-                </button>
+                <div class="center1">
+          <a
+            className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"
+            href="/negative"
+          >
+            {" "}
+            Submit{" "}
+          </a>{" "}
+        </div>{" "}
               </form>
             </div>
           </div>
