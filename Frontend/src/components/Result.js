@@ -10,7 +10,6 @@ class ResultPage extends Component {
     this.setState({
       prediction: this.props.location.prediction,
     });
-    console.log(this.props.location.prediction);
   };
   render() {
     if (this.props.location.prediction === undefined) {

@@ -23,14 +23,14 @@ class DetailsForm extends Component {
     alkalinephos: "",
     calcium: "",
     chloride: "",
-    creatine: "",
+    creatinine: "",
     bilirubin_direct: "",
     glucose: "",
     lactate: "",
     magnesium: "",
     phosphate: "",
     potassium: "",
-    Bilirubin_total: "",
+    bilirubin_total: "",
     troponini: "",
     hct: "",
     hgb: "",
@@ -106,16 +106,18 @@ class DetailsForm extends Component {
     var predict;
     delete toApi.detailedName;
 
-    // axios
-    //   .post("http:localhost:8000/sepsis", {
-    //     ...toApi,
-    //   })
-    //   .then((res) => {
-    //     predict = res.data;
-    //   });
-    predict = 0.873;
-
-    this.setState({ prediction: predict });
+    axios
+      .post("http://localhost:8000/sepsis/", {
+        ...toApi,
+      })
+      .then((res) => {
+        predict = res.data.output;
+        console.log(res.data);
+        this.setState({ prediction: predict });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   render() {
@@ -162,7 +164,7 @@ class DetailsForm extends Component {
                 })}
                 <h2>Laboratory Values</h2>
                 {Object.keys(this.state).map((key, index) => {
-                  if (index > 8 && index < 34) {
+                  if (index >= 8 && index < 34) {
                     return (
                       <div>
                         <input
