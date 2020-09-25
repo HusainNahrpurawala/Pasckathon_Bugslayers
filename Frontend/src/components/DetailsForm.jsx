@@ -219,6 +219,33 @@ class DetailsForm extends Component {
                     );
                   }
                 })}
+                <h2>Details Related To The Patient</h2>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="patientid"
+                  placeholder="Patient ID"
+                  onChange={this.ChangeHandler}
+                  required
+                />
+                <input
+                  type="date"
+                  className="form-control"
+                  name="date"
+                  placeholder="Date Of Admitting Patient"
+                  onChange={this.ChangeHandler}
+                  required
+                />
+                <input
+                  type="time"
+                  className="form-control"
+                  name="time"
+                  placeholder="Time Of Admitting Patient"
+                  onChange={this.ChangeHandler}
+                  required
+                />
+                <br />
+                <br />
                 <button
                   className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"
                   type="submit"
