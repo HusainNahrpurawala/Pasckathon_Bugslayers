@@ -82,17 +82,14 @@ class DetailsForm extends Component {
       "Hours between hospital admit and ICU admit",
       "ICU length-of-stay (hours since ICU admit)",
     ],
+    token: "token",
   };
   componentDidMount = () => {
-    this.setState({
-      token: localStorage.getItem("token")
-        ? localStorage.getItem("token")
-        : undefined,
-    });
+    this.setState({ token: localStorage.getItem("token") });
   };
 
   ChangeHandler = (e) => {
-    // console.log(e.target.name, e.target.value);
+    console.log(this.state);
     if (e.target.name === "gender") {
       this.setState({
         [e.target.name]: e.target.value === "M" ? "1" : "0",
@@ -135,9 +132,9 @@ class DetailsForm extends Component {
   };
 
   render() {
-    // if (this.state.token === undefined) {z
-    //   return <Redirect to="/login" />;
-    // }
+    if (!this.state.token) {
+      return <Redirect to="/login" />;
+    }
     if (this.state.prediction !== undefined) {
       return (
         <Redirect
@@ -228,7 +225,7 @@ class DetailsForm extends Component {
                   onChange={this.ChangeHandler}
                   required
                 />
-                <br/>
+                <br />
                 <input
                   type="date"
                   className="form-control"
@@ -237,7 +234,7 @@ class DetailsForm extends Component {
                   onChange={this.ChangeHandler}
                   required
                 />
-                <br/>
+                <br />
                 <input
                   type="time"
                   className="form-control"
@@ -249,9 +246,10 @@ class DetailsForm extends Component {
                 <br />
                 <br />
                 <div class="center4">
-        <button class="glow-on-hover" type="button" ><a href="/form">SUBMIT</a></button>
-
-        </div>
+                  <button class="glow-on-hover" type="button">
+                    <a href="/form">SUBMIT</a>
+                  </button>
+                </div>
               </form>
             </div>
           </div>
