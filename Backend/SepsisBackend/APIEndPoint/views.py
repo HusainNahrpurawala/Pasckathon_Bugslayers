@@ -30,8 +30,8 @@ class PatientView(APIView):
                 }
                 return Response(response, status=status.HTTP_401_UNAUTHORIZED)
 
-        request.data['datetime'] = "2020-09-16T18:10:30.779Z"
-        request.data['patient_id'] = "12"
+        # request.data['datetime'] = "2020-09-16T18:10:30.779Z"
+        # request.data['patient_id'] = "12"
 
         request.data['hosp'] = User.objects.get(username=request.user).pk
 
