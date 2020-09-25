@@ -3,8 +3,10 @@ import Navbar from "./components/layout/Navbar";
 import Home from "./Home";
 import DetailsForm from "./components/DetailsForm";
 import Result from "./components/Result";
+import Login from "./components/Login";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
+import SignUp from "./components/Signup";
 
 class App extends Component {
   render() {
@@ -16,6 +18,8 @@ class App extends Component {
             <Route exact path="/" component={Home} />{" "}
             <Route exact path="/form" component={DetailsForm}></Route>{" "}
             <Route exact path="/result" component={Result}></Route>{" "}
+            <Route exact path="/login" component={Login}></Route>{" "}
+            <Route exact path="/signup" component={SignUp}></Route>{" "}
           </Switch>{" "}
         </div>{" "}
       </BrowserRouter>

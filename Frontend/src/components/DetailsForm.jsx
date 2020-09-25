@@ -83,6 +83,13 @@ class DetailsForm extends Component {
       "ICU length-of-stay (hours since ICU admit)",
     ],
   };
+  componentDidMount = () => {
+    this.setState({
+      token: localStorage.getItem("token")
+        ? localStorage.getItem("token")
+        : undefined,
+    });
+  };
 
   ChangeHandler = (e) => {
     // console.log(e.target.name, e.target.value);
@@ -107,9 +114,16 @@ class DetailsForm extends Component {
     delete toApi.detailedName;
 
     axios
-      .post("http://localhost:8000/sepsis/", {
-        ...toApi,
-      })
+      .post(
+        "http://localhost:8000/sepsis/",
+        {
+          ...toApi,
+          headers: {
+            Authorization: `Token ${this.state.token}`,
+          },
+        },
+        {}
+      )
       .then((res) => {
         predict = res.data.output;
         console.log(res.data);
@@ -121,6 +135,9 @@ class DetailsForm extends Component {
   };
 
   render() {
+    // if (this.state.token === undefined) {z
+    //   return <Redirect to="/login" />;
+    // }
     if (this.state.prediction !== undefined) {
       return (
         <Redirect
