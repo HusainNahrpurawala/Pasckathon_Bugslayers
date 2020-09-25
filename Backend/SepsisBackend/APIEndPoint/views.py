@@ -1,3 +1,4 @@
+from .models import Patients
 from datetime import datetime
 from rest_framework import status
 from django.shortcuts import render
@@ -19,33 +20,33 @@ class PatientView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def post(self, request):
-        # d = datetime(2015, 10, 9, 23, 55, 59, 342380)
-        # data = request.data
-        data = {}
+    def put(self, request):
         for k in cols:
-            data[k] = request.data[k]
-        for k in data.keys():
-            print(k, " : ", data[k])
             try:
-                data[k] = float(data[k])
+                request.data[k] = float(request.data[k])
             except ValueError:
-                print(k)
-        data['name'] = "Patient Name"
-        data['datetime'] = "2020-09-16T18:10:30.779Z"
-        data['patient_id'] = "12"
+                response = {
+                    'success': False,
+                }
+                return Response(response, status=status.HTTP_401_UNAUTHORIZED)
 
-        # data['datetime'] = d
-        # for k in data.keys():
-        #     print(k, " : ", data[k])
-        p_serializer = PatientSerializer(data=data)
+        request.data['datetime'] = "2020-09-16T18:10:30.779Z"
+        request.data['patient_id'] = "12"
+
+        request.data['hosp'] = User.objects.get(username=request.user).pk
+
+        p_serializer = PatientSerializer(data=request.data)
+
         if (p_serializer.is_valid()):
-            # output = 90.3
-            output = processData(data)
+            output = processData(request.data)
             response = {
                 'success': True,
                 'output': output,
             }
+            request.data['sepsislabel'] = output
+            p_serializer = PatientSerializer(data=request.data)
+            p_serializer.is_valid(raise_exception=True)
+            p_serializer.save()
             print("\ncorrect\n")
             return Response(response, status=status.HTTP_201_CREATED)
         else:
@@ -54,6 +55,15 @@ class PatientView(APIView):
             }
             print("\nnot correct\n")
             return Response(response, status=status.HTTP_401_UNAUTHORIZED)
+
+    def post(self, request):
+        p_list = Patients.objects.filter(patient_id=request.data['patient_id'],
+                                         hosp=request.user)
+        val = float(request.data['sepsislabel'])
+        for patient in p_list:
+            patient.sepsislabel = val
+            patient.save()
+        return Response({'success': "data saved"})
 
 
 @api_view(["POST"])

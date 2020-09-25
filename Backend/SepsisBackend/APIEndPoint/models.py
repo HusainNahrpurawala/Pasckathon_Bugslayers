@@ -4,9 +4,11 @@ from django.contrib.auth.models import User
 
 
 class Patients(models.Model):
-    name = models.CharField(max_length=100)
+
     patient_id = models.CharField(max_length=100)
     datetime = models.DateTimeField(auto_now=False, auto_now_add=False)
+
+    hosp = models.ForeignKey(User, on_delete=models.CASCADE)
 
     hr = models.FloatField()
     o2sat = models.FloatField()
@@ -48,3 +50,5 @@ class Patients(models.Model):
     gender = models.FloatField()
     hospadmtime = models.FloatField()
     iculos = models.FloatField()
+
+    sepsislabel = models.FloatField(default=0.0)

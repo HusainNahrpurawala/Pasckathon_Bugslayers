@@ -14,4 +14,5 @@ urlpatterns = [
     path('', PatientView.as_view(), name="pview"),
     path('login/', login, name="login"),
     path('signup/', signup, name="signup"),
+    path('givedata/', PatientView.as_view(), name='update'),
 ]

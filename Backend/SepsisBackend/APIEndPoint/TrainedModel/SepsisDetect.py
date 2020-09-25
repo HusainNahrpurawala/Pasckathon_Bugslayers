@@ -17,13 +17,13 @@ cols = [
     'troponini', 'hct', 'hgb', 'ptt', 'wbc', 'fibrinogen', 'platelets', 'age',
     'gender', 'hospadmtime', 'iculos'
 ]
-
+scaler = pickle.load(open('APIEndPoint/TrainedModel/scaler.sav', 'rb'))
+model = pickle.load(open('APIEndPoint/TrainedModel/model.sav', 'rb'))
 # print(os.listdir(os.getcwd()))
 
 
 def processData(inp):
-    scaler = pickle.load(open('APIEndPoint/TrainedModel/scaler.sav', 'rb'))
-    model = pickle.load(open('APIEndPoint/TrainedModel/model.sav', 'rb'))
+
     data = []
     for k in cols:
         data.append(inp[k])
