@@ -155,7 +155,7 @@ class DetailsForm extends Component {
                 Test for Sepsis
               </h1>
               <form
-                className="form-style-4"
+                className="form"
                 id="detailsForm"
                 onSubmit={this.handleSubmit}
               >
@@ -228,14 +228,16 @@ class DetailsForm extends Component {
                   onChange={this.ChangeHandler}
                   required
                 />
+                <br/>
                 <input
                   type="date"
                   className="form-control"
                   name="date"
-                  placeholder="Date Of Admitting Patient"
+                  placeholder=""
                   onChange={this.ChangeHandler}
                   required
                 />
+                <br/>
                 <input
                   type="time"
                   className="form-control"
@@ -246,13 +248,10 @@ class DetailsForm extends Component {
                 />
                 <br />
                 <br />
-                <button
-                  className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"
-                  type="submit"
-                >
-                  {" "}
-                  Submit{" "}
-                </button>
+                <div class="center4">
+        <button class="glow-on-hover" type="button" ><a href="/form">SUBMIT</a></button>
+
+        </div>
               </form>
             </div>
           </div>

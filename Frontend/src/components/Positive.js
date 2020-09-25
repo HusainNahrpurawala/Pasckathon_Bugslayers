@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-
+import stats from "./stats.jpg";
 class Positive extends Component{
     render(){
         return(
            <div className="pos">
-               <h1>SEPSIS POSITIVE</h1>
+               <h1 style={{position: "absolute",
+  left: "450px",
+  top: "-5px"}}>SEPSIS POSITIVE</h1>
               
-           <p>
-               <h3>TREATMENT</h3>
-               Early, aggressive treatment boosts your chances of surviving sepsis. People who have sepsis require close monitoring and treatment in a hospital intensive care unit. If you have sepsis or septic shock, lifesaving measures may be needed to stabilize breathing and heart function.
+           
+               <h3 style={{color:"black",position: "absolute",
+  left: "100px",
+  top: "30px"}}>TREATMENT</h3>
+           <p style={{positon: "absolute", marginTop:"5%"}}>    Early, aggressive treatment boosts your chances of surviving sepsis. People who have sepsis require close monitoring and treatment in a hospital intensive care unit. If you have sepsis 
+  or septic shock, lifesaving measures may be needed to stabilize breathing and heart function.
 Medications
 
 A number of medications are used in treating sepsis and septic shock. They include:
@@ -27,9 +32,13 @@ Surgery
 
 Surgery may be needed to remove sources of infection, such as collections of pus (abscesses), infected tissues or gangrene.</p>
 
-                   
+           <div className="img3">
+              <img src={stats} alt="Sepsis statistics"  style={{ width: "100%", 
+                height: "100%", 
+                objectfit: "contain" }}/>
+            </div>       
            </div>
-           
+        
 
            
         );

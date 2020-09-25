@@ -47,12 +47,16 @@ class SignUp extends Component {
     return (
       <div className="Home">
         <section className="page-section">
-          <h1>
-            <i className="fa fa-users" />
-            SignUp
+          <div className="signup">
+          <h1 style={{color:"white"  , position: "absolute",
+  left: "107px",
+  top: "30px",
+  fontFamily:"Helvetica"}}>
+            
+            Sign Up
           </h1>
           <form
-            className="form-style-4"
+            className=""
             id="detailsForm"
             onSubmit={this.handleSubmit}
           >
@@ -80,13 +84,11 @@ class SignUp extends Component {
               onChange={this.ChangeHandler}
               required
             />
-            <button
-              className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"
-              type="submit"
-            >
-              SignUp
-            </button>
-          </form>
+              <div class="center3">
+        <button class="glow-on-hover" type="button" ><a href="/form">SUBMIT</a></button>
+
+        </div>          </form>
+          </div>
         </section>
       </div>
     );

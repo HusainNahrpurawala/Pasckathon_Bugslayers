@@ -7,6 +7,8 @@ import Login from "./components/Login";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import SignUp from "./components/Signup";
+import Positive from "./components/Positive";
+import Negative from "./components/Negative";
 
 class App extends Component {
   render() {
@@ -20,6 +22,8 @@ class App extends Component {
             <Route exact path="/result" component={Result}></Route>{" "}
             <Route exact path="/login" component={Login}></Route>{" "}
             <Route exact path="/signup" component={SignUp}></Route>{" "}
+            <Route exact path="/positive" component={Positive}></Route>{" "}
+            <Route exact path="/negative" component={Negative}></Route>{" "}
           </Switch>{" "}
         </div>{" "}
       </BrowserRouter>

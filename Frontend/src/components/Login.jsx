@@ -43,13 +43,19 @@ class Login extends Component {
     }
     return (
       <div className="Home">
+
         <section className="page-section">
-          <h1>
-            <i className="fa fa-users" />
+        <div className="login">
+         
+          <h1 style={{color:"white"  , position: "absolute",
+  left: "100px",
+  top: "40px",
+  fontFamily:"Helvetica"}}>
+            
             Login
           </h1>
           <form
-            className="form-style-4"
+            className="loginform"
             id="detailsForm"
             onSubmit={this.handleSubmit}
           >
@@ -57,25 +63,26 @@ class Login extends Component {
               type="text"
               className="form-control"
               name="username"
-              placeholder="Username"
+              placeholder="        Username"
               onChange={this.ChangeHandler}
               required
+              style={{left:"50%"}}
+              
             />
             <input
               type="password"
               className="form-control"
-              placeholder="Password"
+              placeholder="        Password"
               name="password"
               onChange={this.ChangeHandler}
               required
             />
-            <button
-              className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"
-              type="submit"
-            >
-              Submit
-            </button>
+             <div class="center2">
+        <button class="glow-on-hover" type="button" ><a href="/form">SUBMIT</a></button>
+
+        </div>
           </form>
+          </div>
         </section>
       </div>
     );

@@ -20,31 +20,30 @@ import React, { Component } from "react";
 export class Card extends Component {
   render() {
     return (
-      <div className={"card" + (this.props.plain ? " card-plain" : "")}>
-        <div className={"header" + (this.props.hCenter ? " text-center" : "")}>
-          <h4 className="title">{this.props.title}</h4>
-          <p className="category">{this.props.category}</p>
-        </div>
-        <div
-          className={
-            "content" +
-            (this.props.ctAllIcons ? " all-icons" : "") +
-            (this.props.ctTableFullWidth ? " table-full-width" : "") +
-            (this.props.ctTableResponsive ? " table-responsive" : "") +
-            (this.props.ctTableUpgrade ? " table-upgrade" : "")
-          }
-        >
-          {this.props.content}
-
-          <div className="footer">
-            {this.props.legend}
-            {this.props.stats != null ? <hr /> : ""}
-            <div className="stats">
-              <i className={this.props.statsIcon} /> {this.props.stats}
-            </div>
-          </div>
-        </div>
+      <div className="row">
+      <div className="col-md-6">
+          <Card
+              title="What is Sepsis?"
+              
+              
+              content={
+                  <div id="chartActivity" className="ct-chart">
+                      <p>According to the Sepsis - 3 guidelines, Sepsis is defined as
+                  a“ as life - threatening organ dysfunction caused by a
+                  dysregulated host response to infection”.Sepsis has a higher
+                  mortality rate than heart attacks, stroke, trauma and certain
+                  cancers.Every year sepsis kills around 6 million people
+                  worldwide, affects around 30 million people worldwide
+                  including 4.2 million newborns and children.Sepsis costs US
+                  hospitals more than any other disease($24 billion) and a
+                  majority of these costs are because of sepsis patients who
+                  were not diagnosed on admission.</p>
+                  </div>
+              }
+              
+          />
       </div>
+  </div>
     );
   }
 }

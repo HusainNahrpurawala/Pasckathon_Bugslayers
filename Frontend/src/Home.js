@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import second from "./2.JPG";
 import first from "./1.JPG";
+
 class Home extends Component {
   render() {
     return (
-      <div className="Home">
+      <div className="Head">
+             <div className="Home">
         <header className="masthead">
           <div className="container">
             <div className="intro-text">
@@ -13,10 +15,11 @@ class Home extends Component {
             </div>{" "}
           </div>{" "}
         </header>{" "}
+ 
         <section className="page-section" id="services">
           <div className="container">
             <div className="text-center">
-              <h2 className="section-heading text-uppercase">
+              <h2 className="section-heading text-uppercase" style={{color:"white" } }>
                 {" "}
                 What is sepsis ?{" "}
               </h2>{" "}
@@ -36,14 +39,16 @@ class Home extends Component {
                   were not diagnosed on admission.{" "}
                 </p>{" "}
               </div>{" "}
-              <img src={first} alt="Sepsis statistics" />
+              <div className="img1">
+              <img src={first} alt="Sepsis statistics"  />
+            </div>
             </div>{" "}
           </div>{" "}
         </section>{" "}
         <section className="page-section" id="services">
-          <div className="container">
-            <div className="text-center">
-              <h2 className="section-heading text-uppercase">
+          <div className="challenge">
+            <div className="text-center1">
+              <h2 className="section-heading text-uppercase" style={{color:"white"}}>
                 {" "}
                 Why complete eradication of sepsis is a challenge{" "}
               </h2>{" "}
@@ -65,7 +70,7 @@ class Home extends Component {
                   provides doctors with sufficient time to work with and provide
                   proper medication.{" "}
                 </p>{" "}
-                <div>
+                <div className="img2">
                   <img src={second} alt="challenge" />
                 </div>{" "}
               </div>{" "}
@@ -73,15 +78,12 @@ class Home extends Component {
           </div>{" "}
         </section>{" "}
         <div class="center">
-          <a
-            className="btn btn-outline-primary btn-xl text-uppercase js-scroll-trigger active"
-            href="/form"
-          >
-            {" "}
-            Get Prediction{" "}
-          </a>{" "}
+        <button class="glow-on-hover" type="button" ><a href="/form">GET PREDICTION</a></button>
+
         </div>{" "}
       </div>
+      </div>
+ 
     );
   }
 }
