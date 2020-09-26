@@ -1,4 +1,4 @@
-<h1><u>Our Project</u></h1>
+<h1><u>Sepsis Detection System</u></h1>
 
 Sepsis is a fatal condition caused by infection and
 subsequent overreaction by the immune system.
