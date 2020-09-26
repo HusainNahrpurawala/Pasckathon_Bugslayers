@@ -8,7 +8,7 @@ function Navbar() {
         id="mainNav"
       >
         <div className="container">
-          <a className="navbar-brand js-scroll-trigger" href="/">
+          <a className="navbar-brand js-scroll-trigger" href="/" style={{color:"#F5F5DC" }}>
             SEPSIS
           </a>
           <button

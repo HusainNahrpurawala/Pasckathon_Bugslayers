@@ -11,7 +11,7 @@ class Home extends Component {
         <header className="masthead">
           <div className="container">
             <div className="intro-text">
-              <div className="intro-lead-in"> SEPSIS PREDICTION SYSTEM </div>{" "}
+              <div className="intro-lead-in" > SEPSIS PREDICTION SYSTEM </div>{" "}
             </div>{" "}
           </div>{" "}
         </header>{" "}
@@ -25,7 +25,7 @@ class Home extends Component {
               </h2>{" "}
               <div className="timeline-body">
                 {" "}
-                <p className="text-muted" style={{ fontWeight: "normal" }}>
+                <p className="text-muted" style={{ fontWeight: "normal" , paddingLeft:"10px", paddingRight:"10px"}}>
                   {" "}
                   According to the Sepsis - 3 guidelines, Sepsis is defined as
                   a“ as life - threatening organ dysfunction caused by a
@@ -48,15 +48,16 @@ class Home extends Component {
         <section className="page-section" id="services">
           <div className="challenge">
             <div className="text-center1">
-              <h2 className="section-heading text-uppercase" style={{color:"white"}}>
-                {" "}
-                Why complete eradication of sepsis is a challenge{" "}
+              <h2 className="section-heading text-uppercase" style={{color:"white", paddingLeft:"10px"}}>
+                {"    "}
+                       Why complete eradication of sepsis is a challenge{" "}
               </h2>{" "}
+            
               <div className="timeline-body">
                 {" "}
-                <p className="text-muted" style={{ fontWeight: "normal" }}>
+                <p className="text-muted" style={{ fontWeight: "normal", paddingRight:"10px", paddingLeft:"10px" ,paddingBottom:"20px"}}>
                   {" "}
-                  Early detection is critical for improving sepsis outcomes and
+                  Early detection is critical forimproving sepsis outcomes and
                   each hour of delayed treatment has been associated with
                   roughly a 4 - 8 % increase in mortality.The method currently
                   deployed to detect Sepsis is the Sequential Organ Failure
