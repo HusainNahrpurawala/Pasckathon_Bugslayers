@@ -3,7 +3,7 @@
 Go to the command line of your machine and type the following command to install npm
 ### `npm install`
 
-### To execute the project 
+## To execute the project 
 To start the project go to your command line and type the following command. Make sure to have npm installed.
 
 
