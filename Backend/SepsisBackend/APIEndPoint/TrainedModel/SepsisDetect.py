@@ -49,24 +49,24 @@ def processData(inp):
     X = scaler.transform([data])
     y = model.predict_proba(X)[:, 1]
     features = {
-        "ICULOS": 0.15565901989176315,
-        "Temp": 0.04888667943307586,
-        "Bilirubin_direct": 0.02674016073371643,
-        "Hct": -0.023410676554303914,
-        "Calcium": -0.021169457728308104,
-        "WBC": 0.01955435898121803,
-        "BUN": -0.015787464366801403,
-        "HR": 0.015564168886349804,
-        "MAP": -0.012930284073671474,
-        "EtCO2": -0.012584893804325184
+        # "ICULOS": 0.15565901989176315,
+        # "Temp": 0.04888667943307586,
+        # "Bilirubin_direct": 0.02674016073371643,
+        # "Hct": -0.023410676554303914,
+        # "Calcium": -0.021169457728308104,
+        # "WBC": 0.01955435898121803,
+        # "BUN": -0.015787464366801403,
+        # "HR": 0.015564168886349804,
+        # "MAP": -0.012930284073671474,
+        # "EtCO2": -0.012584893804325184
     }
 
     inpar = np.array(data)
-    # exp = explainer.explain_instance(inpar, predict_fn=prob, num_features=10)
+    exp = explainer.explain_instance(inpar, predict_fn=prob, num_features=10)
 
-    # f = exp.as_map()
-    # for i in f[1]:
-    #     ind = i[0]
-    #     val = i[1]
-    #     features[COLS[ind]] = val
+    f = exp.as_map()
+    for i in f[1]:
+        ind = i[0]
+        val = i[1]
+        features[COLS[ind]] = val
     return (y[0], features)
