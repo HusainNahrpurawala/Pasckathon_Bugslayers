@@ -13,15 +13,15 @@ class ResultPage extends Component {
   };
   render() {
     if (this.props.location.prediction === undefined) {
-      return <Redirect to="/form"></Redirect>;
+      return <Redirect to="/form"> </Redirect>;
     }
     return (
       <div className="Home">
-        <section className="page-section">{this.state.prediction}</section>
+        <section className="page-section"> {this.state.prediction} </section>
         {this.state.prediction > 0.5 ? (
-          <Positive></Positive>
+          <Positive percent={this.state.prediction} />
         ) : (
-          <Negative></Negative>
+          <Negative percent={this.state.prediction} />
         )}
       </div>
     );
