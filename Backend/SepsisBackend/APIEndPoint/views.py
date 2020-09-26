@@ -23,6 +23,7 @@ class PatientView(APIView):
     def put(self, request):
         for k in cols:
             try:
+                # print(k, ' : ', request.data[k])
                 request.data[k] = float(request.data[k])
             except ValueError:
                 response = {
@@ -30,8 +31,8 @@ class PatientView(APIView):
                 }
                 return Response(response, status=status.HTTP_401_UNAUTHORIZED)
 
-        # request.data['datetime'] = "2020-09-16T18:10:30.779Z"
-        # request.data['patient_id'] = "12"
+        request.data['datetime'] = "2020-09-16T18:10:30.779Z"
+        request.data['patient_id'] = "12"
 
         request.data['hosp'] = User.objects.get(username=request.user).pk
 
@@ -41,9 +42,10 @@ class PatientView(APIView):
             output = processData(request.data)
             response = {
                 'success': True,
-                'output': output,
+                'output': output[0],
+                'features': output[1],
             }
-            request.data['sepsislabel'] = output
+            request.data['sepsislabel'] = output[0]
             p_serializer = PatientSerializer(data=request.data)
             p_serializer.is_valid(raise_exception=True)
             p_serializer.save()
@@ -68,15 +70,15 @@ class PatientView(APIView):
 
 @api_view(["POST"])
 def login(request):
-    username = request.data.get("username")
-    password = request.data.get("password")
-    print(username, password)
+    username = request.data["username"]
+    password = request.data["password"]
     if username is None or password is None:
         return Response({'authenticate': ''},
                         status=status.HTTP_400_BAD_REQUEST)
     user = User.objects.get(username=username, password=password)
     if not user:
         return Response({'authenticate': ''})
+    # print(username, password)
     token, _ = Token.objects.get_or_create(user=user)
     response = {'authenticate': 'true', 'token': token.key}
     return Response(response, status=status.HTTP_200_OK)
@@ -84,8 +86,9 @@ def login(request):
 
 @api_view(["POST"])
 def signup(request):
-    username = request.data.get("username")
-    password = request.data.get("password")
+    print("here")
+    username = request.data["username"]
+    password = request.data["password"]
     if username is None or password is None:
         return Response({'authenticate': ''},
                         status=status.HTTP_400_BAD_REQUEST)

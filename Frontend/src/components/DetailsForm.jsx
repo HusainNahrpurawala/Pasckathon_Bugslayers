@@ -109,14 +109,17 @@ class DetailsForm extends Component {
     var toApi = this.state;
     var predict;
     delete toApi.detailedName;
-
+    var t = `Token ` + this.state.token;
+    console.log(t);
     axios
-      .post(
+      .put(
         "http://localhost:8000/sepsis/",
         {
           ...toApi,
+        },
+        {
           headers: {
-            Authorization: `Token ${this.state.token}`,
+            Authorization: t,
           },
         },
         {}
@@ -246,8 +249,8 @@ class DetailsForm extends Component {
                 <br />
                 <br />
                 <div class="center4">
-                  <button class="glow-on-hover" type="button">
-                    <a href="/form">SUBMIT</a>
+                  <button class="glow-on-hover" type="submit">
+                    SUBMIT
                   </button>
                 </div>
               </form>

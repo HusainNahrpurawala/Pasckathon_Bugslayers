@@ -20,24 +20,26 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    // axios
-    //   .post("http://localhost:8000/login/", {
-    //     username: this.state.username,
-    //     password: this.state.password,
-    //   })
-    //   .then((res) => {
-    //     var token = res.data.token;
-    //     localStorage.setItem("token", JSON.stringify(token));
-    //     this.setState({ token });
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
-    var token = 5;
-    localStorage.setItem("token", JSON.stringify(token));
-    this.setState({ token }, () => {
-      window.location.reload();
-    });
+    axios
+      .post("http://localhost:8000/sepsis/login/", {
+        username: this.state.username,
+        password: this.state.password,
+      })
+      .then((res) => {
+        var token = res.data.token;
+        localStorage.setItem("token", token);
+        this.setState({ token }, () => {
+          window.location.reload();
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    // var token = 5;
+    // localStorage.setItem("token", JSON.stringify(token));
+    // this.setState({ token }, () => {
+    //   window.location.reload();
+    // });
   };
 
   render() {

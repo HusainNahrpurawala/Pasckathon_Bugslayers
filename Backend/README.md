@@ -1,8 +1,8 @@
 - Install the environment using
   `conda env create -f environment.yml`
 
-- Download model into /home/mufaddal/Mufaddal/Git/SepsisBackend/APIEndPoint/TrainedModel/
-  from [here](https://drive.google.com/file/d/1Z1da5VFjwr1fdn9XfEic1-Ah67fqaCep/view?usp=sharing).
+- Download model into SepsisBackend/APIEndPoint/TrainedModel/
+  from [here](https://drive.google.com/file/d/1-21YgMwcJN7CwOaQVQX2JQwy1V_044Z3/view?usp=sharing) 
 
 - Activate the conda environment using
   `conda activate pasckathon`

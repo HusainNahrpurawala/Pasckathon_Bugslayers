@@ -24,20 +24,23 @@ class SignUp extends Component {
 
     console.log(this.state);
 
-    // axios
-    //   .post("http://localhost:8000/signup/", {
-    //     username: this.state.username,
-    //     password: this.state.password,
-    //   })
-    //   .then((res) => {
-    //     var token = res.data.token;
-    //     localStorage.setItem("token", JSON.stringify(token));
-    //     this.setState({ token });
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
+    axios
+      .post("http://localhost:8000/sepsis/signup/", {
+        username: this.state.username,
+        password: this.state.password,
+      })
+      .then((res) => {
+        if (res.data.authenticate) {
+          var token = res.data.token;
+          localStorage.setItem("token", JSON.stringify(token));
+          this.setState({ token });
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
     var token = 5;
+    console.log(token);
     localStorage.setItem("token", JSON.stringify(token));
     this.setState({ token }, () => {
       window.location.reload();
