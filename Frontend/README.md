@@ -1,8 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Installing npm on your machine:
+Go to the command line of your machine and type the following command to install npm
+### `npm install`
 
-In the project directory, you can run:
+### To execute the project 
+To start the project go to your command line and type the following command. Make sure to have npm installed.
+
 
 ### `npm start`
 
