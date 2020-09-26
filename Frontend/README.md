@@ -1,5 +1,5 @@
 
-### Installing npm on your machine:
+## Installing npm on your machine:
 Go to the command line of your machine and type the following command to install npm
 ### `npm install`
 
