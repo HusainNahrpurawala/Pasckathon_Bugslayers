@@ -32,19 +32,21 @@ class SignUp extends Component {
       .then((res) => {
         if (res.data.authenticate) {
           var token = res.data.token;
-          localStorage.setItem("token", JSON.stringify(token));
-          this.setState({ token });
+          localStorage.setItem("token", token);
+          this.setState({ token }, () => {
+            window.location.reload();
+          });
         }
       })
       .catch((e) => {
         console.log(e);
       });
-    var token = 5;
-    console.log(token);
-    localStorage.setItem("token", JSON.stringify(token));
-    this.setState({ token }, () => {
-      window.location.reload();
-    });
+    // var token = 5;
+    // console.log(token);
+    // localStorage.setItem("token", JSON.stringify(token));
+    // this.setState({ token }, () => {
+    //   window.location.reload();
+    // });
   };
 
   render() {

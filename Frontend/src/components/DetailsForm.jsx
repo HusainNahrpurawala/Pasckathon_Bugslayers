@@ -89,7 +89,7 @@ class DetailsForm extends Component {
   };
 
   ChangeHandler = (e) => {
-    console.log(this.state);
+    // console.log(this.state);
     if (e.target.name === "gender") {
       this.setState({
         [e.target.name]: e.target.value === "M" ? "1" : "0",
@@ -110,7 +110,7 @@ class DetailsForm extends Component {
     var predict;
     delete toApi.detailedName;
     var t = `Token ` + this.state.token;
-    console.log(t);
+    // console.log(t);
     axios
       .put(
         "http://localhost:8000/sepsis/",
@@ -126,7 +126,7 @@ class DetailsForm extends Component {
       )
       .then((res) => {
         predict = res.data.output;
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({ prediction: predict });
       })
       .catch((e) => {
